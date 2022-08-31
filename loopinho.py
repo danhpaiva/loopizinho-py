@@ -6,6 +6,15 @@ import time
 # Welcome - Loopizinho #
 
 
+def clear():
+    try:
+        import os
+        lines = os.get_terminal_size().lines
+    except AttributeError:
+        lines = 130
+    print("\n" * lines)
+
+
 def AcessGoogle(driver):
     driver.get('https://www.google.com')
     time.sleep(3)
@@ -35,4 +44,5 @@ while (True):
     driver = webdriver.Edge('.\edgedriver_win64\msedgedriver.exe')
     AcessAzure(driver)
     time.sleep(5)
+    clear()
     driver.close()

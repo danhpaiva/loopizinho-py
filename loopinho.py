@@ -51,8 +51,9 @@ def RandomClick(driver):
 
 
 # Let's Code #
+pathSystem = '.\edgedriver_win64\msedgedriver.exe'
 while (True):
-    driver = webdriver.Edge('.\edgedriver_win64\msedgedriver.exe')
+    driver = webdriver.Edge(pathSystem)
     time.sleep(2)
     AcessGoogle(driver)
     randomNumber = random.randint(1, 4)
@@ -64,7 +65,7 @@ while (True):
     time.sleep(5)
     driver.close()
     time.sleep(5)
-    driver = webdriver.Edge('.\edgedriver_win64\msedgedriver.exe')
+    driver = webdriver.Edge(pathSystem)
     time.sleep(2)
     AcessAzure(driver)
     clear()

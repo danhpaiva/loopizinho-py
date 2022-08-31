@@ -6,24 +6,33 @@ import time
 # Welcome - Loopizinho #
 
 
-def AcessUrl(driver):
-    driver.get('http://www.google.com')
+def AcessGoogle(driver):
+    driver.get('https://www.google.com')
+    time.sleep(3)
+
+
+def AcessAzure(driver):
+    driver.get('https://azure.microsoft.com/')
     time.sleep(3)
 
 
 def GoToSearch(driver):
     inputButon = driver.find_element(
         By.XPATH, "/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input")
-    inputButon.send_keys("Some Text" + Keys.ENTER)
-    time.sleep(3)
+    inputButon.send_keys("consumir api soap c#" + Keys.ENTER)
+    time.sleep(5)
 
 
 # Let's Code #
 while (True):
     driver = webdriver.Edge('.\edgedriver_win64\msedgedriver.exe')
-    AcessUrl(driver)
+    AcessGoogle(driver)
     GoToSearch(driver)
     driver.back()
     time.sleep(2)
     driver.close()
     time.sleep(3)
+    driver = webdriver.Edge('.\edgedriver_win64\msedgedriver.exe')
+    AcessAzure(driver)
+    time.sleep(5)
+    driver.close()
